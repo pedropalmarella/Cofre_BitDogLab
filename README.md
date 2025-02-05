@@ -35,39 +35,6 @@ Este projeto implementa um **cofre eletrônico simulado** utilizando o microcont
 - **Pico SDK** configurado no seu ambiente de desenvolvimento.
 - **CMake** instalado.
 
-### Passos para Configuração
-
-1. **Instale o Visual Studio Code**:
-   - Baixe o VSCode em: [https://code.visualstudio.com/](https://code.visualstudio.com/).
-   
-2. **Instale o Pico SDK**:
-   - Siga o guia de instalação do Pico SDK em: [https://datasheets.raspberrypi.org/pico/getting-started-with-pico.pdf](https://datasheets.raspberrypi.org/pico/getting-started-with-pico.pdf).
-
-3. **Clone o repositório**:
-   - Abra o terminal e execute:
-     ```bash
-     git clone https://github.com/seuusuario/cofre-rp2040.git
-     ```
-
-4. **Abra o projeto no VSCode**:
-   - Abra a pasta do projeto no VSCode.
-
-5. **Configure o ambiente de desenvolvimento**:
-   - Instale as dependências e ferramentas recomendadas, como o **CMake**.
-
-6. **Compilando o código**:
-   - Abra o terminal integrado do VSCode e execute:
-     ```bash
-     mkdir build
-     cd build
-     cmake ..
-     make
-     ```
-
-7. **Carregue o código no Raspberry Pi Pico**:
-   - Conecte o Raspberry Pi Pico ao computador.
-   - Coloque o Pico no modo de bootloader e copie o arquivo compilado `.uf2` para o dispositivo.
-
 ## Como Usar
 
 1. Compile e carregue o código no Raspberry Pi Pico.
