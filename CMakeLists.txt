@@ -28,42 +28,43 @@ set(PICO_BOARD pico_w CACHE STRING "Board type")
 # Pull in Raspberry Pi Pico SDK (must be before project)
 include(pico_sdk_import.cmake)
 
-project(pio_matrix C CXX ASM)
+project(display_i2c C CXX ASM)
 
 # Initialise the Raspberry Pi Pico SDK
 pico_sdk_init()
 
 # Add executable. Default name is the project name, version 0.1
 
-add_executable(pio_matrix pio_matrix.c )
+add_executable(display_i2c display_i2c.c inc/ssd1306.c)
 
-pico_set_program_name(pio_matrix "pio_matrix")
-pico_set_program_version(pio_matrix "0.1")
+pico_set_program_name(display_i2c "display_i2c")
+pico_set_program_version(display_i2c "0.1")
 
 # Modify the below lines to enable/disable output over UART/USB
-pico_enable_stdio_uart(pio_matrix 0)
-pico_enable_stdio_usb(pio_matrix 1)
+pico_enable_stdio_uart(display_i2c 0)
+pico_enable_stdio_usb(display_i2c 1)
 
-pico_generate_pio_header(pio_matrix ${CMAKE_CURRENT_LIST_DIR}/pio_matrix.pio)
+pico_generate_pio_header(display_i2c ${CMAKE_CURRENT_LIST_DIR}/pio_matrix.pio)
 
-target_sources(pio_matrix PRIVATE pio_matrix.c)
+target_sources(display_i2c PRIVATE display_i2c.c)
 
 # Add the standard library to the build
-target_link_libraries(pio_matrix PRIVATE
+target_link_libraries(display_i2c PRIVATE
         pico_stdlib
         hardware_pio
 	    hardware_adc
-        pico_bootrom)
+        pico_bootrom
+        hardware_i2c)
 
 # Add the standard include files to the build
-target_include_directories(pio_matrix PRIVATE
+target_include_directories(display_i2c PRIVATE
   ${CMAKE_CURRENT_LIST_DIR}
 )
 
 # Add any user requested libraries
-target_link_libraries(pio_matrix 
+target_link_libraries(display_i2c 
         
         )
 
-pico_add_extra_outputs(pio_matrix)
+pico_add_extra_outputs(display_i2c)
 

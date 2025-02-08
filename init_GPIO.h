@@ -1,4 +1,4 @@
-#ifndef INIT_GPIO_H  
+#ifndef INIT_GPIO_H
 #define INIT_GPIO_H
 
 #include "pico/stdlib.h"
@@ -12,7 +12,8 @@
 #define LED_BLUE 12
 #define BUZZER 21
 
-void init_gpio(){
+void init_gpio()
+{
     gpio_init(BTN_A);
     gpio_set_dir(BTN_A, GPIO_IN);
     gpio_pull_up(BTN_A);
@@ -34,8 +35,5 @@ void init_gpio(){
 
     gpio_init(BUZZER);
     gpio_set_dir(BUZZER, GPIO_OUT);
-
-    gpio_put(LED_RED, 1);
-    gpio_put(LED_GREEN, 1);
 }
 #endif

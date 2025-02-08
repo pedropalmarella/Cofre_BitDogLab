@@ -43,6 +43,7 @@
         "bootrom.h": "c",
         "pio_matrix.pio.h": "c",
         "config_matriz_leds.h": "c",
-        "timer.h": "c"
+        "timer.h": "c",
+        "clocks.h": "c"
     }
 }
