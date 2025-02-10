@@ -1,6 +1,8 @@
 # Cofre Simulado com RP2040
 
 Este projeto implementa um **cofre eletrônico simulado** utilizando o microcontrolador RP2040. O cofre é pré-configurado com uma senha de **4 dígitos**, onde o usuário insere valores utilizando dois botões. Se o usuário errar a senha **3 vezes seguidas**, o sistema entra em **modo de bloqueio**. Caso a senha seja inserida corretamente, o **cofre será desbloqueado** com um sinal visual piscando em **verde**.
+## Vídeo de apresentação: https://www.youtube.com/watch?v=VwsZPhnf4us&t=1s
+## Vídeo explicando o projeto: https://youtu.be/WcVbs2z3kEM
 
 ## Funcionalidades
 
