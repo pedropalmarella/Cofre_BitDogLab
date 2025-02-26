@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head> 
+    <meta charset="UTF-8"> <!-- Definindo a codificação de caracteres como UTF-8 --> 
+    <!-- Meta tag para responsividade -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controle de Segurança</title>
+    <style>
+        body {
+            background-color: darkblue;
+            color: white;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+             /* Garante que a altura ocupe 100% da tela */
+            margin: 0;
+            text-align: center;
+            padding: 10px; /* Reduz o espaçamento para economizar espaço */
+            box-sizing: border-box;
+             /* overflow: hidden;Impede rolagem desnecessária */
+        }
+        h1, h2, p {
+            width: 100%;
+            max-width: 600px; /* Limita a largura máxima */
+            text-align: center;
+        }
+        button {
+            border: none;
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+            margin: 10px;
+            border-radius: 5px;
+            font-weight: bold;
+            width: 100%; /* Faz os botões ocuparem a largura disponível */
+            max-width: 250px; /* Limita o tamanho máximo dos botões */
+        }
+        .default-btn {
+            background-color: white;
+            color: black;
+        }
+        .default-btn:hover {
+            background-color: gray;
+        }
+        .emergency-btn {
+            background-color: red;
+            color: white;
+        }
+        .emergency-btn:hover {
+            background-color: darkred;
+        }
+        .access-btn {
+            background-color: green;
+            color: white;
+        }
+        .access-btn:hover {
+            background-color: darkgreen;
+        }
+        a {
+            text-decoration: none;
+        }
+        /* Container dos botões */
+        .button-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap; /* Permite quebra para a próxima linha */
+            width: 100%;
+            max-width: 600px; /* Limita a largura máxima */
+            gap: 20px; /* Espaçamento entre os botões */
+        }
+        /* Media query para telas pequenas (smartphones) */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 24px; /* Ajuste de tamanho da fonte */
+            }
+            button {
+                font-size: 16px; /* Ajusta o tamanho dos botões */
+                padding: 8px 16px;
+            }
+            .button-container {
+                flex-direction: column; /* Alinha os botões verticalmente */
+                gap: 10px;
+            }
+        }
+
+        .github-link {
+            color: yellow;
+            font-weight: bold;
+        }
+        .github-link:hover {
+            color: gold;
+        }
+    </style>
+</head>
+<body> 
+    <h1>CONTROLE DE SEGURANÇA</h1>
+    
+    <a href="/led.cgi?led=toggle"><button class="default-btn">ON/OFF SISTEMA</button></a>
+    <p>STATUS DO SISTEMA: (<!--#led-->)</p>
+    
+    <br>
+
+    <a href="/block.cgi?block=toggle"><button class="emergency-btn">ON/OFF EMERGÊNCIA</button></a>
+    <p>STATUS DA EMERGÊNCIA: (<!--#block-->)</p>
+
+    <br>
+
+    <a href="/acesso.cgi?acesso=toggle"><button class="access-btn">ON/OFF ACESSO LIVRE</button></a>
+    <p>STATUS DA TRANCA: (<!--#tranca-->)</p>
+
+    <div class="button-container">
+        <a href="/index.shtml"><button class="default-btn">ATUALIZAR</button></a>
+        <a href="/bootsel.cgi?bootsel=toggle"><button class="default-btn">BOOTSEL</button></a> 
+    </div>
+
+    <br>
+
+    <h2>SENHA ATUAL: <!--#senha--></h2>
+    <p>GITHUB <a href="https://github.com/pedropalmarella" target="_blank" class="github-link">PEDRO PALMARELLA</a></p>
+
+
+</body>
+</html>

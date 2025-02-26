@@ -43,6 +43,20 @@
         "bootrom.h": "c",
         "pio_matrix.pio.h": "c",
         "config_matriz_leds.h": "c",
-        "timer.h": "c"
+        "timer.h": "c",
+        "ssd1306.h": "c",
+        "init_i2c.h": "c",
+        "init_adc.h": "c",
+        "font.h": "c",
+        "matriz_leds.h": "c",
+        "setup_display.h": "c",
+        "ip_addr.h": "c",
+        "netif.h": "c",
+        "httpd.h": "c",
+        "cyw43_arch.h": "c",
+        "pio.h": "c",
+        "stdlib.h": "c",
+        "adc.h": "c",
+        "init_gpio.h": "c"
     }
 }
