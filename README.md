@@ -12,8 +12,7 @@ Este projeto implementa um **cofre eletrônico/controle de acesso simulado** no 
 - **Joystick** (GPIO22): Confirma a senha inserida.
 - **Joystick para DIREITA** (GPIO26): Volta para o menu.
 - **Joystick para ESQUERDA** (GPIO27): Apaga os caracteres digitados.
-- **BOOTSEL VIA WEB SERVER**: Entra no **modo Bootsel**.
-- **Senha pré-configurada** de 4 dígitos.
+- **Senha pré-configurada** de 4 dígitos (AABB).
 - **Tentativas limitadas**: Após 3 erros consecutivos, o sistema entra em modo de bloqueio.
 - **Modo de bloqueio**: Aciona o alarme.
 - **Desbloqueio bem-sucedido**: Se a senha for inserida corretamente, um padrão em verde é acionado.
@@ -26,6 +25,7 @@ Este projeto implementa um **cofre eletrônico/controle de acesso simulado** no 
 - **Criar senha**: Permite ao usuário alterar a senha correta e visualizar a senha atual do sistema.
 - **Como usar**: Tela com instruções para utilização do sistema.
 - **Conexão Wi-Fi**: CY43.
+- **BOOTSEL VIA WEB SERVER**: Entra no **modo Bootsel**.
 - **Web Server**: Comunicação com outros dispositivos via HTTP, acessando o IP da placa na mesma rede Wi-Fi, o usuário pode ligar ou desligar: o sistema, o modo bloqueio (emergência) e o acesso direto (Destrava a tranca sem necessidade de senha).
 
 ## Tecnologias Utilizadas
@@ -37,12 +37,18 @@ Este projeto implementa um **cofre eletrônico/controle de acesso simulado** no 
   - 2 Botões físicos (GPIO5) e (GPIO6)
   - LED RGB (GPIO11) e (GPIO13)
   - Buzzer (GPIO21)
-  - Display SSD1306 OLED (GPIO 14), (GPIO15) e endereço 0x3c
+  - Display SSD1306 OLED (GPIO14 SDA), (GPIO15 SCL) e endereço 0x3c
   - Matriz de leds ws2812 (GPIO7)
   - Joystick analógico (GPIO22), (GPIO26) e (GPIO27)
 
 ## Como Usar
 
+obs: certifique-se de ter alterado as informações para sua rede Wi-Fi 
 1. Compile e carregue o código no Raspberry Pi Pico.
-2. O sistema inicia pronto para receber a senha.
+2. O sistema tenta conectar a rede Wi-Fi.
+3. Após se conectar ao Wi-Fi o sistema habilita o menu com as 3 opções.
+4. O usuário pode mover o joystick na vertical para navegar entre as opções e pressionar o mesmo para confirmar a seleção
+5. Nas duas primeiras opções("Inserir senha" e "Criar senha") do menu, o usuário pode digitar a senha utilizando os botões A e B, além de poder apagar os mesmos dígitos movendo o joystick para esquerda e retornar ao menu movendo-o para direita.
+6. Na terceira opção o usuário encontra uma tela com instruções de uso do sistema.
+###Alterando o Web Server###
 
