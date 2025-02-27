@@ -53,20 +53,20 @@ obs: certifique-se de ter alterado as informações para sua rede Wi-Fi
 
 ## Web Server ##
 
-## Como Acessar:
+## Como Acessar
   - Ao conectar-se no Wi-Fi o programa imprime no terminal o seu IP (Você pode encontrá-lo de outras maneiras na sua rede também).
   - Usando um navegador busque pelo IP da placa, logo você será capaz de utilizá-lo.
-**Como Alterar o Site (HTML)**:
+## Como Alterar o Site (HTML)
 
   - Você deve alterar o arqivo index.shtml dentro da pasta html_files como um arquivo html comum.
   - Após isso será necessário rodar o script makefsdata.py -> no terminal do vscode mesmo você pode executá-lo com esse comando: python makefsdata.py (RECOMENDO QUE APAGUE O ARQUIVO htmldata.c ANTES DE RODAR O SCRIPT).
   - O script vai gerar um novo htmldata.c, basicamente ele converte o arquivo HTML para hexadecimal e traduz em um arquivo .c com as informações para o html.
     
-**Como Passar a Lógica dos botões**:
+## Como Passar a Lógica dos botões
   - Você deve manipular o arquivo cgi.h criando um novo handler seguindo o template que você pode encontrar nesse projeto, porém altere a variável e o que a chamada do botão fará, no meu caso são FLAGS e o botão do bootsel entra no modo de gravação.
   - Deve-se alterar o arquivo html passando aos botões links referentes às chamadas das funções, exemplo a href="/led.cgi?led=toggle, faz com que ao apertar o botão o estado do led seja alterado.
 
-**Como alterar a Exibição das Variáveis**
+## Como alterar a Exibição das Variáveis
   - Você deve manipular o arquivo ssi.h criando uma nova tag dentro de const char *ssi_tags[]
   - No handler deve-se criar um novo case no switch, o case é a posição da tag dentro de ssi_tags
   - printed = snprintf(pcInsert, iInsertLen, "ON"); Aqui você vai definir o que irá ser exibido de acordo a sua lógica ao utilizar a tag, nesse caso irá aparecer no html ON quando eu chamar tag block e ela estiver ativada.
