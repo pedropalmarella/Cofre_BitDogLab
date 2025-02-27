@@ -47,7 +47,7 @@ Este projeto implementa um **cofre eletrônico/controle de acesso simulado** no 
       hardware_i2c -
       pico_bootrom -
       pico_cyw43_arch_lwip_threadsafe_background -
-      pico_lwip_http _
+      pico_lwip_http
 
 ## Como Usar
 
