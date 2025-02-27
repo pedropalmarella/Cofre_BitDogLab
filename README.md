@@ -40,7 +40,7 @@ Este projeto implementa um **cofre eletrônico/controle de acesso simulado** no 
   - Display SSD1306 OLED (GPIO14 SDA), (GPIO15 SCL) e endereço 0x3c
   - Matriz de leds ws2812 (GPIO7)
   - Joystick analógico (GPIO22), (GPIO26) e (GPIO27)
-  - Libs do projeto:
+  - Libs do cmake:
       pico_stdlib -
       hardware_pio -
 	hardware_adc -
