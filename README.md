@@ -52,6 +52,7 @@ obs: certifique-se de ter alterado as informações para sua rede Wi-Fi
 6. Na terceira opção o usuário encontra uma tela com instruções de uso do sistema.
 
 ## Web Server ##
+
 **Como Acessar**:
   - Ao conectar-se no Wi-Fi o programa imprime no terminal o seu IP (Você pode encontrá-lo de outras maneiras na sua rede também).
   - Usando um navegador busque pelo IP da placa, logo você será capaz de utilizá-lo.
