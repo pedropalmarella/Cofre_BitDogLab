@@ -70,5 +70,5 @@ obs: certifique-se de ter alterado as informações para sua rede Wi-Fi
   - Você deve manipular o arquivo ssi.h criando uma nova tag dentro de const char *ssi_tags[]
   - No handler deve-se criar um novo case no switch, o case é a posição da tag dentro de ssi_tags
   - printed = snprintf(pcInsert, iInsertLen, "ON"); Aqui você vai definir o que irá ser exibido de acordo a sua lógica ao utilizar a tag, nesse caso irá aparecer no html ON quando eu chamar tag block e ela estiver ativada.
-  - No arquivo html é assim que você utiliza a tag por exemplo <p>STATUS DA EMERGÊNCIA: (<!--#block-->)</p>
+  - No arquivo html é assim que você utiliza a tag por exemplo <p>STATUS DA EMERGÊNCIA: (<!-- #block -->)</p>
 
