@@ -41,13 +41,13 @@ Este projeto implementa um **cofre eletrônico/controle de acesso simulado** no 
   - Matriz de leds ws2812 (GPIO7)
   - Joystick analógico (GPIO22), (GPIO26) e (GPIO27)
   - Libs do projeto:
-      pico_stdlib
-      hardware_pio
-	    hardware_adc
-      hardware_i2c
-      pico_bootrom
-      pico_cyw43_arch_lwip_threadsafe_background
-      pico_lwip_http
+      pico_stdlib -
+      hardware_pio -
+	hardware_adc -
+      hardware_i2c -
+      pico_bootrom -
+      pico_cyw43_arch_lwip_threadsafe_background -
+      pico_lwip_http _
 
 ## Como Usar
 
