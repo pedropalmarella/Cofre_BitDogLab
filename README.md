@@ -1,8 +1,8 @@
-# Cofre Simulado com RP2040
+# Trava Inteligente - Controle de acesso com RP2040
 
-Este projeto implementa um **cofre eletrônico simulado** utilizando o microcontrolador RP2040. O cofre é pré-configurado com uma senha de **4 dígitos**, onde o usuário insere valores utilizando dois botões. Se o usuário errar a senha **3 vezes seguidas**, o sistema entra em **modo de bloqueio**. Caso a senha seja inserida corretamente, o **cofre será desbloqueado** com um sinal visual piscando em **verde**.
-## Vídeo de apresentação: https://www.youtube.com/watch?v=VwsZPhnf4us&t=1s
-## Vídeo explicando o projeto: https://youtu.be/WcVbs2z3kEM
+Este projeto implementa um **cofre eletrônico/controle de acesso simulado** no qual o usuário pode navegar por um menu, inserir uma senha, alterar a senha do sistema e controlar remotamente a trava por meio do web server, caso esteja na mesma rede Wi-Fi, usando um navegador o usuário pode acessar o IP do sistema e controlá-lo. Os botões foram tratados utilizando pull up, IRQ e debounce.
+## Vídeo de apresentação: https://www.youtube.com/watch?v=hze41JATdF4
+## Vídeo explicando a versão INICIAL do projeto: https://youtu.be/WcVbs2z3kEM
 
 ## Funcionalidades
 
@@ -10,40 +10,39 @@ Este projeto implementa um **cofre eletrônico simulado** utilizando o microcont
 - **Botão A** (GPIO5): Insere o número "1" na sequência.
 - **Botão B** (GPIO6): Insere o número "2" na sequência.
 - **Joystick** (GPIO22): Confirma a senha inserida.
-- **Botões A + B pressionados simultaneamente**: Entra no **modo Bootsel**.
+- **Joystick para DIREITA** (GPIO26): Volta para o menu.
+- **Joystick para ESQUERDA** (GPIO27): Apaga os caracteres digitados.
+- **BOOTSEL VIA WEB SERVER**: Entra no **modo Bootsel**.
 - **Senha pré-configurada** de 4 dígitos.
 - **Tentativas limitadas**: Após 3 erros consecutivos, o sistema entra em modo de bloqueio.
-- **Modo de bloqueio**: Impede novas tentativas por um tempo determinado.
+- **Modo de bloqueio**: Aciona o alarme.
 - **Desbloqueio bem-sucedido**: Se a senha for inserida corretamente, um padrão em verde é acionado.
-- **Feedback sonoro**: Utilização de **buzzer(GPIO21)** para indicar acertos e erros.
+- **Feedback sonoro**: Utilização de **buzzer(GPIO21)** para indicar o modo bloqueio.
 - **Utilização de interrupção e polling** para leitura eficiente dos botões.
 - **Temporização** para controle do modo bloqueio.
+- **Matriz de leds (ws2812)**: (GPIO 7) Para resposta visual com usuário, informando dígito pressionado e status do sistema.
+- **Menu de navegação**: O menu possui 3 opções(inserir senha, criar senha, como usar).
+- **Inserir senha**: Usuário insere a senha e confirma para verificação.
+- **Criar senha**: Permite ao usuário alterar a senha correta e visualizar a senha atual do sistema.
+- **Como usar**: Tela com instruções para utilização do sistema.
+- **Conexão Wi-Fi**: CY43.
+- **Web Server**: Comunicação com outros dispositivos via HTTP, acessando o IP da placa na mesma rede Wi-Fi, o usuário pode ligar ou desligar: o sistema, o modo bloqueio (emergência) e o acesso direto (Destrava a tranca sem necessidade de senha).
 
 ## Tecnologias Utilizadas
 
-- **Microcontrolador**: Raspberry Pi Pico (RP2040)
-- **Linguagem de Programação**: C (usando o **Pico SDK**)
+- **Microcontrolador**: Raspberry Pi Pico W (RP2040)
+- **Linguagem de Programação**: C (usando o **Pico SDK**). obs: há um script python de tradução do html para hexa e crinado o arquivo.c com informações para o web server.
 - **Ambiente de Desenvolvimento**: Visual Studio Code (VSCode) com Pico SDK
 - **Hardware**:
-  - Botões físicos
-  - LED indicador
-  - Buzzer
-
-## Instalação
-
-### Requisitos
-
-- **Visual Studio Code** instalado.
-- **Pico SDK** configurado no seu ambiente de desenvolvimento.
-- **CMake** instalado.
+  - 2 Botões físicos (GPIO5) e (GPIO6)
+  - LED RGB (GPIO11) e (GPIO13)
+  - Buzzer (GPIO21)
+  - Display SSD1306 OLED (GPIO 14), (GPIO15) e endereço 0x3c
+  - Matriz de leds ws2812 (GPIO7)
+  - Joystick analógico (GPIO22), (GPIO26) e (GPIO27)
 
 ## Como Usar
 
 1. Compile e carregue o código no Raspberry Pi Pico.
 2. O sistema inicia pronto para receber a senha.
-3. Use o **botão A** para inserir "1" e o **botão B** para inserir "2".
-4. Pressione o **joystick** para confirmar a senha.
-5. **Se a senha for correta**, um LED verde pisca indicando sucesso.
-6. **Se a senha for errada**, o buzzer emite um som de erro.
-7. Após **3 tentativas erradas**, o sistema entra em **modo de bloqueio** e impede novas tentativas por um tempo determinado.
-8. Pressione **botão A + botão B simultaneamente** para entrar no **modo Bootsel**.
+
