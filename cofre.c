@@ -20,8 +20,8 @@
 #include "cgi.h"
 ////////////////////////////////////////////////////////////
 
-#define WIFI_SSID "Vanda"        // NOME DA REDE WIFI
-#define WIFI_PASSWORD "ma1g2no3" // SENHA DA REDE WIFI
+#define WIFI_SSID ""        // NOME DA REDE WIFI
+#define WIFI_PASSWORD "" // SENHA DA REDE WIFI
 // FLAGS PARA ALTERAR O ESTADO DOS BOTÕES NAS INTERRUPÇÕES
 volatile bool btnA_pressionado = false;
 volatile bool btnB_pressionado = false;
